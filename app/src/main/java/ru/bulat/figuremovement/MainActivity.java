@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
@@ -13,18 +15,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(new DrawView(this));
-    }
+        final DrawView drawView = new DrawView(this);
+        setContentView(drawView);
 
-    class DrawView extends View {
-        public DrawView(Context context) {
-            super(context);
-        }
-
-        @Override
-        protected void onDraw(Canvas canvas) {
-            canvas.drawColor(Color.GREEN);
-        }
-
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                drawView.invalidate();
+                new Handler().postDelayed(this, 10);
+            }
+        }, 10);
     }
 }

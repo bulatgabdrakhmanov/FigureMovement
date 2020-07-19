@@ -1,6 +1,7 @@
 package ru.bulat.figuremovement.modules;
 
 import android.graphics.Canvas;
+import android.graphics.Color;
 
 public class Rectangle extends Figure {
     private int width;
@@ -10,11 +11,18 @@ public class Rectangle extends Figure {
         super(position);
         setWidth(width);
         setHeight(height);
+        paint.setColor(Color.BLUE);
     }
 
     @Override
     public void draw(Canvas canvas) {
-
+        canvas.drawRect(
+                getPosition().getX() - (float) getWidth() / 2,
+                getPosition().getY() - (float) getHeight() / 2,
+                getPosition().getX() + (float) getWidth() / 2,
+                getPosition().getY() + (float) getHeight() / 2,
+                paint
+        );
     }
 
     public int getWidth() {

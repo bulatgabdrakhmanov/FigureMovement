@@ -1,9 +1,11 @@
 package ru.bulat.figuremovement.modules;
 
 import android.graphics.Canvas;
+import android.graphics.Paint;
 
 public abstract class Figure {
     private Point position;
+    protected final Paint paint = new Paint();
 
     public Figure(Point position) {
         setPosition(position);

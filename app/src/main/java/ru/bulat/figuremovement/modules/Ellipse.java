@@ -1,6 +1,7 @@
 package ru.bulat.figuremovement.modules;
 
 import android.graphics.Canvas;
+import android.graphics.Color;
 
 import ru.bulat.figuremovement.interfaces.ColorChangeable;
 
@@ -12,16 +13,23 @@ public class Ellipse extends Figure implements ColorChangeable {
         super(position);
         setRadiusX(radiusX);
         setRadiusY(radiusY);
+        paint.setColor(Color.MAGENTA);
     }
 
     @Override
     public void draw(Canvas canvas) {
-
+        canvas.drawOval(
+                getPosition().getX() - (float) getRadiusX() / 2,
+                getPosition().getY() - (float) getRadiusY() / 2,
+                getPosition().getX() + (float) getRadiusX() / 2,
+                getPosition().getY() + (float) getRadiusY() / 2,
+                paint
+        );
     }
 
     @Override
     public void changeColor(int color) {
-
+        paint.setColor(color);
     }
 
     public int getRadiusX() {
