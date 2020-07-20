@@ -2,21 +2,23 @@ package ru.bulat.figuremovement;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.view.View;
 
 import java.util.ArrayList;
 import java.util.Random;
 
+import ru.bulat.figuremovement.interfaces.ColorChangeable;
 import ru.bulat.figuremovement.modules.Circle;
 import ru.bulat.figuremovement.modules.Ellipse;
 import ru.bulat.figuremovement.modules.Figure;
 import ru.bulat.figuremovement.modules.Point;
 import ru.bulat.figuremovement.modules.Rectangle;
 import ru.bulat.figuremovement.modules.Square;
-import static ru.bulat.figuremovement.utils.Helper.getRandomFromRange;
 
 public class DrawView extends View {
     private static final int STEP = 4;
+    private final Random random = new Random(System.nanoTime());
 
     private int xDirection = 1;
     private int yDirection = 1;
@@ -53,11 +55,21 @@ public class DrawView extends View {
             if (pos.getY() >= getHeight()) yDirection = -1;
 
             figure.moveTo(
-                    (STEP + getRandomFromRange(1, 4)) * xDirection,
-                    (STEP + getRandomFromRange(1, 4)) * yDirection
+                    (STEP + random.nextInt(5)) * xDirection,
+                    (STEP + random.nextInt(5)) * yDirection
             );
         }
 
         super.invalidate();
+    }
+
+    public void changeColors() {
+        for (Figure figure: figures) {
+            if (figure instanceof ColorChangeable) {
+                ((ColorChangeable) figure).changeColor(
+                        -random.nextInt(16777216)
+                );
+            }
+        }
     }
 }
