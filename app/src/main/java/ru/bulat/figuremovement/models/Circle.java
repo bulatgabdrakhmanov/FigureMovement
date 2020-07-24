@@ -1,8 +1,7 @@
-package ru.bulat.figuremovement.modules;
+package ru.bulat.figuremovement.models;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
 
 public class Circle extends Figure {
     private int radius;

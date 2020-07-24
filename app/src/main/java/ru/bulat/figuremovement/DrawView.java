@@ -2,19 +2,18 @@ package ru.bulat.figuremovement;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.view.View;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 import ru.bulat.figuremovement.interfaces.ColorChangeable;
-import ru.bulat.figuremovement.modules.Circle;
-import ru.bulat.figuremovement.modules.Ellipse;
-import ru.bulat.figuremovement.modules.Figure;
-import ru.bulat.figuremovement.modules.Point;
-import ru.bulat.figuremovement.modules.Rectangle;
-import ru.bulat.figuremovement.modules.Square;
+import ru.bulat.figuremovement.models.Circle;
+import ru.bulat.figuremovement.models.Ellipse;
+import ru.bulat.figuremovement.models.Figure;
+import ru.bulat.figuremovement.models.Point;
+import ru.bulat.figuremovement.models.Rectangle;
+import ru.bulat.figuremovement.models.Square;
 
 public class DrawView extends View {
     private static final int STEP = 4;

@@ -1,4 +1,4 @@
-package ru.bulat.figuremovement.modules;
+package ru.bulat.figuremovement.models;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;

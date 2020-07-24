@@ -1,4 +1,4 @@
-package ru.bulat.figuremovement.modules;
+package ru.bulat.figuremovement.models;
 
 public class Point {
     private final int x;
